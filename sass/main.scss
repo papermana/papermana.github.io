@@ -1,0 +1,52 @@
+$name-height: 4.4rem;
+$occupation-height: 3.6rem;
+
+@function header-line-height($font-height) {
+  @return $font-height * 1.2;
+}
+
+html {
+  font-family: 'Lato', sans-serif;
+  font-size: 16;
+  background-color: rgb(240,240,240);
+}
+
+header {
+  // height: header-line-height($name-height) + header-line-height($occupation-height) + 1rem;
+
+  margin: 66px 0;
+  padding: 150px 35px 35px;
+
+  background-color: #566cfb;
+
+  overflow: auto;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 300;
+  color: rgba(255,255,255,0.9);
+}
+
+.name {
+  font-size: $name-height;
+  line-height: header-line-height($name-height);
+}
+
+.occupation {
+  font-size: $occupation-height;
+  line-height: header-line-height($occupation-height);
+}
+
+
+.skill-big {
+  font-size: 1.7rem;
+
+  color: rgba(0,0,0,0.6);
+}
+
+.skill-small {
+  font-size: 1rem;
+
+  color: rgba(0,0,0,0.4);
+}
