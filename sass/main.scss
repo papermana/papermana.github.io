@@ -1,23 +1,30 @@
 $name-height: 4.4rem;
-$occupation-height: 3.6rem;
+$occupation-height: 3.0rem;
 
 @function header-line-height($font-height) {
   @return $font-height * 1.2;
 }
 
+@function gradient-circle($size, $x, $y, $color) {
+  @return radial-gradient($size at $x $y, $color 0px, $color $size, transparent $size + 1);
+}
+
 html {
   font-family: 'Lato', sans-serif;
-  font-size: 16;
+  font-size: 20px;
   background-color: rgb(240,240,240);
 }
 
 header {
-  // height: header-line-height($name-height) + header-line-height($occupation-height) + 1rem;
-
-  margin: 66px 0;
+  margin: 50px 0;
   padding: 150px 35px 35px;
 
-  background-color: #566cfb;
+  background-color: rgb(86,108,251);
+  background-image:
+    gradient-circle(20px, 1250px, 15px, rgba(240,240,50,0.25)),
+    gradient-circle(75px, 900px, 200px, rgba(100,200,100,0.25)),
+    gradient-circle(55px, 300px, 150px, rgba(175,175,75,0.25)),
+    gradient-circle(200px, 1700px, 50px, rgba(100,100,50,0.25));
 
   overflow: auto;
 }
@@ -26,16 +33,22 @@ header h1 {
   margin: 0;
   font-weight: 300;
   color: rgba(255,255,255,0.9);
+
+  font-family: 'Quicksand', sans-serif;
 }
 
 .name {
   font-size: $name-height;
   line-height: header-line-height($name-height);
+
+  letter-spacing: -0.1em;
 }
 
 .occupation {
   font-size: $occupation-height;
   line-height: header-line-height($occupation-height);
+
+  letter-spacing: -0.1em;
 }
 
 
