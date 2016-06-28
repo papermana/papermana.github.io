@@ -2,26 +2,28 @@
   @return $font-height * 1.2;
 }
 
-@function gradient-circle($size, $x, $y, $color) {
+@function background-circle($size, $x, $y, $color) {
   @return radial-gradient($size at $x $y, $color 0px, $color $size, transparent $size + 1);
 }
 
 
 
-// $name-height: 4.4rem;
 $name-height: 88px;
-// $occupation-height: 3.0rem;
 $occupation-height: 60px;
 $header-padding-top: 150px;
 $header-padding-bottom: 15px;
+$header-padding-horizontal: 35px;
 $header-height:
   header-line-height($name-height) +
   header-line-height($occupation-height) +
   $header-padding-top +
   $header-padding-bottom;
-$header-bg-color: rgb(86,108,251);
 $header-offset-top: 50px;
+$header-bg-color: rgb(86,108,251);
+$header-main-width-difference: 50px;
 $main-max-width: 1100px;
+$main-height-over-header: 15px;
+$main-padding: 50px;
 
 
 
@@ -38,23 +40,27 @@ body {
 }
 
 header {
+  $width: $main-max-width + $header-main-width-difference * 2 + $header-padding-horizontal * 2;
+
   position: absolute;
-  top: 50px;
-  left: calc((100vw - #{$main-max-width + 100px + 35 * 2px}) / 2);
+  top: $header-offset-top;
+  left: calc((100% - #{$width}) / 2);
 
   height: $header-height;
-  max-width: $main-max-width + 100px + 35 * 2px;
+  max-width: $width;
   width: 100%;
-  padding: $header-padding-top 35px $header-padding-bottom;
+  padding: $header-padding-top $header-padding-horizontal $header-padding-bottom;
 
   background-color: $header-bg-color;
   background-image:
-    gradient-circle(20px, 1250px, 15px, rgba(240,240,50,0.5)),
-    gradient-circle(75px, 900px, 200px, rgba(100,200,100,0.25)),
-    gradient-circle(55px, 300px, 150px, rgba(175,175,75,0.25)),
-    gradient-circle(200px, 1700px, 50px, rgba(100,100,50,0.25));
+    background-circle(20px, 1250px, 15px, rgba(240,240,50,0.5)),
+    background-circle(75px, 900px, 200px, rgba(100,200,100,0.25)),
+    background-circle(55px, 300px, 150px, rgba(175,175,75,0.25)),
+    background-circle(200px, 1700px, 50px, rgba(100,100,50,0.25));
 
-  box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.2);
+  box-shadow:
+    5px 5px 10px 0px rgba(0,0,0,0.2),
+    inset 0px 0px 30px 5px rgba(0,0,0,0.1);
 
   box-sizing: border-box;
 }
@@ -64,10 +70,10 @@ header::before {
   display: block;
   position: absolute;
   top: 0;
-  left: -50px;
+  left: -$header-main-width-difference;
 
   height: $header-height;
-  width: 50px;
+  width: $header-main-width-difference;
 
   background-color: darken($header-bg-color, 2.5%);
 
@@ -114,13 +120,13 @@ header h2 {
 }
 
 main {
-  max-width: $main-max-width + 100px;
+  max-width: $main-max-width + $main-padding * 2;
   width: 100%;
   margin: 0 auto;
-  margin-top: 35px;
+  margin-top: $header-offset-top - $main-height-over-header;
 
-  padding: 50px;
-  padding-top: $header-height + 50px + (50 - 35) * 1px;
+  padding: $main-padding;
+  padding-top: $main-padding + $header-height + $main-height-over-header;
 
   background-color: white;
 
