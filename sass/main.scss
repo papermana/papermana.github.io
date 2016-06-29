@@ -19,7 +19,7 @@ $header-height:
   $header-padding-top +
   $header-padding-bottom;
 $header-offset-top: 50px;
-$header-bg-color: rgb(86,108,251);
+$header-bg-color: rgb(95, 115, 247);
 $header-main-width-difference: 50px;
 $main-max-width: 1000px;
 $main-height-over-header: 15px;
@@ -75,7 +75,7 @@ header::before {
   height: $header-height;
   width: $header-main-width-difference;
 
-  background-color: darken($header-bg-color, 2.5%);
+  background-color: darken($header-bg-color, 5%);
 
   transform-origin: right;
   transform: rotateY(135deg) skewY(-20deg);
@@ -130,6 +130,7 @@ a {
 }
 
 a:hover {
+  color: lighten($header-bg-color, 5%);
   text-decoration: underline;
 }
 
