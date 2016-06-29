@@ -24,9 +24,9 @@ html {
 a {
   color: $header-bg-color;
   text-decoration: none;
-}
 
-a:hover {
-  color: lighten($header-bg-color, 5%);
-  text-decoration: underline;
+  &:hover {
+    color: lighten($header-bg-color, 5%);
+    text-decoration: underline;
+  }
 }

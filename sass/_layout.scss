@@ -37,7 +37,7 @@ main {
   margin-bottom: 50px;
 
   padding: $main-padding;
-  padding-top: $main-padding + $header-height + $main-height-over-header;
+  padding-top: 10px + $header-height + $main-height-over-header;
 
   box-sizing: border-box;
 }
