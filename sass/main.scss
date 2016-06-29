@@ -21,7 +21,7 @@ $header-height:
 $header-offset-top: 50px;
 $header-bg-color: rgb(86,108,251);
 $header-main-width-difference: 50px;
-$main-max-width: 1100px;
+$main-max-width: 1000px;
 $main-height-over-header: 15px;
 $main-padding: 50px;
 
@@ -59,7 +59,7 @@ header {
     background-circle(200px, 1700px, 50px, rgba(100,100,50,0.25));
 
   box-shadow:
-    3px 3px 5px 0px rgba(0,0,0,0.2),
+    0px 3px 4px 0px rgba(0,0,0,0.2),
     inset 0px 0px 30px 5px rgba(0,0,0,0.1);
 
   box-sizing: border-box;
@@ -107,18 +107,6 @@ header h2 {
 }
 
 
-.skill-big {
-  font-size: 1.7rem;
-
-  color: rgba(0,0,0,0.6);
-}
-
-.skill-small {
-  font-size: 1rem;
-
-  color: rgba(0,0,0,0.4);
-}
-
 main {
   max-width: $main-max-width + $main-padding * 2;
   width: 100%;
@@ -133,5 +121,60 @@ main {
 
   box-sizing: border-box;
 
-  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.2);
+}
+
+a {
+  color: $header-bg-color;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  font-size: 1.25rem;
+
+  color: rgba(0,0,0, 0.9);
+}
+
+.skills-list {
+
+}
+
+.skill {
+  list-style: none;
+
+  margin: 0.5em 0;
+}
+
+.skill-big {
+  font-size: 1.6rem;
+
+  color: rgba(0,0,0,0.6);
+}
+
+.skill-large {
+  font-size: 1.4rem;
+
+  color: rgba(0,0,0,0.55);
+}
+
+.skill-medium {
+  font-size: 1.3rem;
+
+  color: rgba(0,0,0,0.5);
+}
+
+.skill-small {
+  font-size: 1.2rem;
+
+  color: rgba(0,0,0,0.45);
+}
+
+.skill-xsmall {
+  font-size: 1rem;
+
+  color: rgba(0,0,0,0.4);
 }
