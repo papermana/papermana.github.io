@@ -76,6 +76,9 @@ main h3,
 main p {
   font-size: 1.2rem;
   color: rgba(0,0,0,1.0);
+
+  margin-top: 1.75em;
+  margin-bottom: 1.15em;
 }
 
 main h3 {
@@ -93,7 +96,7 @@ main p {
 }
 
 .skill {
-  margin: 0.5em 0;
+  margin: 0.5rem 0;
 }
 
 .skill-big {
@@ -102,26 +105,20 @@ main p {
   color: rgba(0,0,0,0.85);
 }
 
-.skill-large {
-  font-size: 1.3rem;
+.skill-medium {
+  font-size: 1.2rem;
+
+  color: rgba(0,0,0,0.8);
+}
+
+.skill-small {
+  font-size: 0.95rem;
 
   color: rgba(0,0,0,0.75);
 }
 
-.skill-medium {
-  font-size: 1.15rem;
-
-  color: rgba(0,0,0,0.65);
-}
-
-.skill-small {
-  font-size: 1rem;
-
-  color: rgba(0,0,0,0.6);
-}
-
 .skill-xsmall {
-  font-size: 1rem;
+  font-size: 0.75rem;
 
-  color: rgba(0,0,0,0.4);
+  color: rgba(0,0,0,0.75);
 }
