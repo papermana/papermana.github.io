@@ -59,7 +59,7 @@ header {
     background-circle(200px, 1700px, 50px, rgba(100,100,50,0.25));
 
   box-shadow:
-    5px 5px 10px 0px rgba(0,0,0,0.2),
+    3px 3px 5px 0px rgba(0,0,0,0.2),
     inset 0px 0px 30px 5px rgba(0,0,0,0.1);
 
   box-sizing: border-box;
@@ -124,6 +124,7 @@ main {
   width: 100%;
   margin: 0 auto;
   margin-top: $header-offset-top - $main-height-over-header;
+  margin-bottom: 50px;
 
   padding: $main-padding;
   padding-top: $main-padding + $header-height + $main-height-over-header;
