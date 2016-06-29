@@ -1,0 +1,39 @@
+/******************************************************************************\
+|      VARIABLES                                                               |
+|                                                                              |
+|  This should be self-explanatory.                                            |
+|                                                                              |
+\******************************************************************************/
+
+
+//  HEADER
+//
+//  These specify fons-size for text nodes in header:
+$name-height: 88px;
+$occupation-height: 60px;
+
+$header-padding-top: 150px;
+$header-padding-bottom: 15px;
+$header-padding-horizontal: 35px;
+$header-height:
+  header-line-height($name-height) +
+  header-line-height($occupation-height) +
+  $header-padding-top +
+  $header-padding-bottom;
+
+//  How much space is there between top of the page and header:
+$header-offset-top: 50px;
+
+$header-bg-color: rgb(95, 115, 247);
+
+//  How far header goes beyond main in width to do the fold effect (for one side):
+$header-main-width-difference: 50px;
+
+
+//  MAIN
+//
+$main-max-width: 1000px;
+$main-padding: 50px;
+
+//  How far does main "peak" over the header:
+$main-height-over-header: 15px;

@@ -1,0 +1,43 @@
+/******************************************************************************\
+|      LAYOUT                                                                  |
+|                                                                              |
+|  This file determines where the various elements of the site should be.      |
+|  Note that the same element can appear here and in CONTENT, but with         |
+|  different rules applied.
+|                                                                              |
+\******************************************************************************/
+
+
+body {
+  overflow: auto;
+
+  padding: 0 50px;
+}
+
+header {
+  $width: $main-max-width + $header-main-width-difference * 2 + $header-padding-horizontal * 2;
+
+  position: absolute;
+  top: $header-offset-top;
+  left: calc((100% - #{$width}) / 2);
+
+  height: $header-height;
+  max-width: $width;
+  width: 100%;
+  padding: $header-padding-top $header-padding-horizontal $header-padding-bottom;
+
+  box-sizing: border-box;
+}
+
+main {
+  max-width: $main-max-width + $main-padding * 2;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: $header-offset-top - $main-height-over-header;
+  margin-bottom: 50px;
+
+  padding: $main-padding;
+  padding-top: $main-padding + $header-height + $main-height-over-header;
+
+  box-sizing: border-box;
+}

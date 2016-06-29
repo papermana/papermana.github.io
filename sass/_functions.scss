@@ -1,0 +1,17 @@
+/******************************************************************************\
+|      FUNCTIONS                                                               |
+|                                                                              |
+|  This should be self-explanatory.                                            |
+|                                                                              |
+\******************************************************************************/
+
+
+//  Calculates line height for text nodes inside of header:
+@function header-line-height($font-height) {
+  @return $font-height * 1.2;
+}
+
+//  Gets used to create decorative background for header:
+@function background-circle($size, $x, $y, $color) {
+  @return radial-gradient($size at $x $y, $color 0px, $color $size, transparent $size + 1);
+}

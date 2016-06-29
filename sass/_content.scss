@@ -1,0 +1,112 @@
+/******************************************************************************\
+|      CONTENT                                                                 |
+|                                                                              |
+|  These rules determine how particular elements of the site look.             |
+|  For "universal" rules, go to GENERAL, and for where things should be,       |
+|  and how big they should be, go to LAYOUT.                                   |
+|  This file could be split into further smaller parts, if necessary.          |
+|                                                                              |
+\******************************************************************************/
+
+
+header {
+  background-color: $header-bg-color;
+  background-image:
+    background-circle(20px, 1250px, 15px, rgba(240,240,50,0.5)),
+    background-circle(75px, 900px, 200px, rgba(100,200,100,0.25)),
+    background-circle(55px, 300px, 150px, rgba(175,175,75,0.25)),
+    background-circle(200px, 1700px, 50px, rgba(100,100,50,0.25));
+  box-shadow:
+    0px 3px 4px 0px rgba(0,0,0,0.2),
+    inset 0px 0px 30px 5px rgba(0,0,0,0.1);
+}
+
+header::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -$header-main-width-difference;
+
+  height: $header-height;
+  width: $header-main-width-difference;
+
+  background-color: darken($header-bg-color, 5%);
+
+  transform-origin: right;
+  transform: rotateY(135deg) skewY(-20deg);
+
+  z-index: -1;
+}
+
+header h1,
+header h2 {
+  margin: 0;
+  font-weight: 300;
+  color: rgba(255,255,255,0.9);
+
+  font-family: 'Quicksand';
+}
+
+.name {
+  font-size: $name-height;
+  line-height: header-line-height($name-height);
+
+  letter-spacing: -0.1em;
+}
+
+.occupation {
+  font-size: $occupation-height;
+  line-height: header-line-height($occupation-height);
+
+  letter-spacing: -0.1em;
+}
+
+main {
+  background-color: white;
+  box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.2);
+}
+
+p {
+  font-size: 1.25rem;
+
+  color: rgba(0,0,0, 0.9);
+}
+
+.skills-list {
+  list-style: none;
+}
+
+.skill {
+  margin: 0.5em 0;
+}
+
+.skill-big {
+  font-size: 1.6rem;
+
+  color: rgba(0,0,0,0.6);
+}
+
+.skill-large {
+  font-size: 1.4rem;
+
+  color: rgba(0,0,0,0.55);
+}
+
+.skill-medium {
+  font-size: 1.3rem;
+
+  color: rgba(0,0,0,0.5);
+}
+
+.skill-small {
+  font-size: 1.2rem;
+
+  color: rgba(0,0,0,0.45);
+}
+
+.skill-xsmall {
+  font-size: 1rem;
+
+  color: rgba(0,0,0,0.4);
+}
