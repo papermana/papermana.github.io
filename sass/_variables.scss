@@ -9,6 +9,9 @@
 $SQRT2: 1.4142;
 
 
+$body-padding: 15px;
+
+
 //  HEADER
 //
 //  These specify fons-size for text nodes in header:
@@ -40,3 +43,17 @@ $main-padding: 100px;
 
 //  How far does main "peak" over the header:
 $main-height-over-header: 15px;
+
+
+//  BREAKPOINTS
+//
+//  Raw values:
+$br-large-val: $main-max-width + $header-main-width-difference * 2 + $body-padding * 2;
+$br-medium-val: 768px;
+$br-small-val: 425px;
+
+//  Actual breakpoints to use in media queries:
+$br-large: '(min-width: #{$br-large-val})';
+$br-medium: '(min-width: #{$br-medium-val}) and (max-width: #{$br-large-val - 1})';
+$br-small: '(min-width: #{$br-small-val}) and (max-width: #{$br-medium-val - 1})';
+$br-xsmall: '(max-width: #{$br-small-val - 1})'

@@ -23,26 +23,28 @@ header {
     inset 0px 0px 30px 5px rgba(0,0,0,0.1);
 }
 
-header::before {
-  //  Since the fold will be a diagonal line, we need to calculate
-  //  how long the side actually is:
-  $width: $header-main-width-difference * $SQRT2;
+@media screen and #{$br-large}, screen and #{$br-medium} {
+  header::before {
+    //  Since the fold will be a diagonal line, we need to calculate
+    //  how long the side actually is:
+    $width: $header-main-width-difference * $SQRT2;
 
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: $width * -1;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: $width * -1;
 
-  height: $header-height;
-  width: $width;
+    height: $header-height;
+    width: $width;
 
-  background-color: darken($header-bg-color, 5%);
+    background-color: darken($header-bg-color, 5%);
 
-  transform-origin: right;
-  transform: rotateY(135deg) skewY(-20deg);
+    transform-origin: right;
+    transform: rotateY(135deg) skewY(-20deg);
 
-  z-index: -1;
+    z-index: -1;
+  }
 }
 
 header h1,
@@ -66,6 +68,30 @@ header h2 {
   line-height: header-line-height($occupation-height);
 
   letter-spacing: -0.1em;
+}
+
+@media screen and #{$br-small} {
+  .name {
+    font-size: 58px;
+    line-height: header-line-height(58px);
+  }
+
+  .occupation {
+    font-size: 46px;
+    line-height: header-line-height(46px);
+  }
+}
+
+@media screen and #{$br-xsmall} {
+  .name {
+    font-size: 42px;
+    line-height: header-line-height(42px);
+  }
+
+  .occupation {
+    font-size: 32px;
+    line-height: header-line-height(32px);
+  }
 }
 
 

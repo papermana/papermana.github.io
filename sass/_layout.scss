@@ -8,36 +8,98 @@
 \******************************************************************************/
 
 
-body {
-  overflow: auto;
-
-  padding: 0 50px;
-}
-
-header {
-  $width: $main-max-width + $header-main-width-difference * 2;
-
-  position: absolute;
-  top: $header-offset-top;
-  left: calc((100% - #{$width}) / 2);
-
-  height: $header-height;
-  max-width: $width;
-  width: 100%;
-  padding: $header-padding-top $header-padding-horizontal $header-padding-bottom;
-
-  box-sizing: border-box;
-}
-
+header,
 main {
-  max-width: $main-max-width;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: $header-offset-top - $main-height-over-header;
-  margin-bottom: 50px;
-
-  padding: $main-padding;
-  padding-top: 10px + $header-height + $main-height-over-header;
-
   box-sizing: border-box;
+}
+
+@media screen and #{$br-large} {
+  header {
+    $width: $main-max-width + $header-main-width-difference * 2;
+
+    position: absolute;
+    top: $header-offset-top;
+    left: calc((100% - #{$width}) / 2);
+
+    height: $header-height;
+    max-width: $width;
+    width: 100%;
+    padding: $header-padding-top $header-padding-horizontal $header-padding-bottom;
+  }
+
+  main {
+    max-width: $main-max-width;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: $header-offset-top - $main-height-over-header;
+    margin-bottom: 50px;
+
+    padding: $main-padding;
+    padding-top: 10px + $header-height + $main-height-over-header;
+    padding-bottom: 50px;
+  }
+}
+
+@media screen and #{$br-medium} {
+  body {
+    padding: 0 #{$body-padding + $header-main-width-difference};
+  }
+
+  header {
+    position: absolute;
+    top: $header-offset-top;
+    left: $body-padding;
+
+    height: $header-height;
+    max-width: calc(100% - #{$body-padding} * 2);
+    width: 100%;
+    padding: $header-padding-top $header-padding-horizontal $header-padding-bottom;
+  }
+
+  main {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: $header-offset-top - $main-height-over-header;
+    margin-bottom: 50px;
+
+    padding: $main-padding;
+    padding-top: 10px + $header-height + $main-height-over-header;
+    padding-bottom: 50px;
+  }
+}
+
+@media screen and #{$br-small} {
+  body {
+    background-color: white;
+  }
+
+  header {
+    padding: 15px;
+    padding-top: 130px;
+  }
+
+  main {
+    padding: 50px;
+    padding-top: 0;
+
+    overflow: auto;
+  }
+}
+
+@media screen and #{$br-xsmall} {
+  body {
+    background-color: white;
+  }
+
+  header {
+    padding: 15px;
+    padding-top: 100px;
+  }
+
+  main {
+    padding: 20px;
+    padding-top: 0;
+
+    overflow: auto;
+  }
 }
