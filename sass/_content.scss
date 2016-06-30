@@ -24,14 +24,18 @@ header {
 }
 
 header::before {
+  //  Since the fold will be a diagonal line, we need to calculate
+  //  how long the side actually is:
+  $width: $header-main-width-difference * $SQRT2;
+
   content: '';
   display: block;
   position: absolute;
   top: 0;
-  left: -$header-main-width-difference;
+  left: $width * -1;
 
   height: $header-height;
-  width: $header-main-width-difference;
+  width: $width;
 
   background-color: darken($header-bg-color, 5%);
 

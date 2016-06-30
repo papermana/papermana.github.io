@@ -15,7 +15,7 @@ body {
 }
 
 header {
-  $width: $main-max-width + $header-main-width-difference * 2 + $header-padding-horizontal * 2;
+  $width: $main-max-width + $header-main-width-difference * 2;
 
   position: absolute;
   top: $header-offset-top;
@@ -30,7 +30,7 @@ header {
 }
 
 main {
-  max-width: $main-max-width + $main-padding * 2;
+  max-width: $main-max-width;
   width: 100%;
   margin: 0 auto;
   margin-top: $header-offset-top - $main-height-over-header;
