@@ -14,17 +14,20 @@ main {
 }
 
 @media screen and #{$br-large} {
-  header {
-    $width: $main-max-width + $header-main-width-difference * 2;
+  $header-width: $main-max-width + $header-main-width-difference * 2;
+  $transition-time: 1s;
 
+  header {
     position: absolute;
     top: $header-offset-top;
-    left: calc((100% - #{$width}) / 2);
+    left: calc((100% - #{$header-width}) / 2);
 
     height: $header-height;
-    max-width: $width;
+    max-width: $header-width;
     width: 100%;
     padding: $header-padding-top $header-padding-horizontal $header-padding-bottom;
+
+    transition: transform $transition-time, max-width $transition-time;
   }
 
   main {
@@ -37,6 +40,57 @@ main {
     padding: $main-padding;
     padding-top: 10px + $header-height + $main-height-over-header;
     padding-bottom: 50px;
+
+    transition: transform $transition-time;
+  }
+
+  //  <body> element:
+  .start {
+    $arrow-color: rgba(0,0,0,0.66);
+    $arrow-size: 18px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    &::before {
+      content: 'Click to scroll';
+      position: fixed;
+      bottom: 100px + $arrow-size + 16px;
+      right: 0;
+
+      width: 100%;
+
+      text-align: center;
+      color: rgba(0,0,0,0.4);
+    }
+
+    &::after {
+      content: '';
+      position: fixed;
+      bottom: 100px;
+      right: calc((100vw - #{$arrow-size * 2}) / 2);
+
+      width: 0;
+      height: 0;
+
+      border: $arrow-size solid;
+      border-color: transparent $arrow-color $arrow-color transparent;
+
+      transform: rotate(45deg);
+    }
+
+    header {
+      max-width: 100%;
+
+      transform:
+        translateX(calc((100% - #{$header-width}) / 2 * -1))
+        translateY(calc((100vh - #{$header-height}) / 2 - #{$header-offset-top}));
+    }
+
+    main {
+      transform: translateY(100vh);
+    }
   }
 }
 

@@ -45,6 +45,10 @@ header {
 
     z-index: -1;
   }
+
+  .start header::before {
+    display: none;
+  }
 }
 
 header h1,
