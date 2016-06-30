@@ -15,7 +15,6 @@ main {
 
 @media screen and #{$br-large} {
   $header-width: $main-max-width + $header-main-width-difference * 2;
-  $transition-time: 1s;
 
   header {
     position: absolute;
@@ -26,8 +25,6 @@ main {
     max-width: $header-width;
     width: 100%;
     padding: $header-padding-top $header-padding-horizontal $header-padding-bottom;
-
-    transition: transform $transition-time, max-width $transition-time;
   }
 
   main {
@@ -40,18 +37,19 @@ main {
     padding: $main-padding;
     padding-top: 10px + $header-height + $main-height-over-header;
     padding-bottom: 50px;
-
-    transition: transform $transition-time;
   }
 
   //  <body> element:
-  .start {
-    $arrow-color: rgba(0,0,0,0.66);
+  .start,
+  .start-anim {
+    $arrow-color: rgba(0,0,0,0.55);
     $arrow-size: 18px;
+    $hints-transition-time: 0.05s;
+
+    //  This needs to be reflected in main.js:
+    $transition-time: 1s;
 
     overflow: hidden;
-
-    cursor: pointer;
 
     &::before {
       content: 'Click to scroll';
@@ -63,6 +61,8 @@ main {
 
       text-align: center;
       color: rgba(0,0,0,0.4);
+
+      transition: opacity $hints-transition-time;
     }
 
     &::after {
@@ -78,7 +78,23 @@ main {
       border-color: transparent $arrow-color $arrow-color transparent;
 
       transform: rotate(45deg);
+
+      transition: opacity $hints-transition-time;
     }
+
+    header {
+      transition: transform $transition-time, max-width $transition-time;
+
+      z-index: 10;
+    }
+
+    main {
+      transition: transform $transition-time;
+    }
+  }
+
+  .start {
+    cursor: pointer;
 
     header {
       max-width: 100%;
@@ -90,6 +106,13 @@ main {
 
     main {
       transform: translateY(100vh);
+    }
+  }
+
+  .start-anim {
+    &::before,
+    &::after {
+      opacity: 0;
     }
   }
 }

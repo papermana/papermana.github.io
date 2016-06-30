@@ -46,7 +46,8 @@ header {
     z-index: -1;
   }
 
-  .start header::before {
+  .start header::before,
+  .start-anim header::before {
     display: none;
   }
 }
