@@ -8,9 +8,17 @@
 \******************************************************************************/
 
 
+body,
 header,
 main {
   box-sizing: border-box;
+}
+
+//  Freaking margins collapsing, man:
+body {
+  position:relative;
+  float: left;
+  width: 100%;
 }
 
 @media screen and #{$br-large} {
@@ -19,7 +27,7 @@ main {
   header {
     position: absolute;
     top: $header-offset-top;
-    left: calc((100% - #{$header-width}) / 2);
+    left: calc((100vw - #{$header-width}) / 2);
 
     height: $header-height;
     max-width: $header-width;
@@ -97,7 +105,8 @@ main {
     cursor: pointer;
 
     header {
-      max-width: 100%;
+      max-width: 100vw;
+      width: 100vw;
 
       transform:
         translateX(calc((100% - #{$header-width}) / 2 * -1))
