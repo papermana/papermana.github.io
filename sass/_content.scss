@@ -44,11 +44,15 @@ header {
     transform: rotateY(135deg) skewY(-20deg);
 
     z-index: -1;
+
+    transition: transform 0.3s;
   }
 
   .start header::before,
   .start-anim header::before {
-    display: none;
+    visibility: hidden;
+
+    transform: rotateY(135deg) skewY(0deg);
   }
 }
 
