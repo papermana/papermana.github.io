@@ -34,6 +34,8 @@ body {
     max-width: $header-width;
     width: 100%;
     padding: $header-padding-top $header-padding-horizontal $header-padding-bottom;
+
+    // clip: rect(0px $header-width $header-height 0px)
   }
 
   main {
@@ -85,6 +87,10 @@ body {
 
     header {
       z-index: 10;
+
+      //  Prepare for animation, put header on a separate GPU layer:
+      backface-visibility: visible;
+      will-change: transform, max-width, clip;
     }
 
   }
@@ -94,6 +100,8 @@ body {
 
     header {
       max-width: 100%;
+
+      // clip: rect(0px 100vw $header-height 0px);
 
       transform:
         translateX(calc((100% - #{$header-width}) / 2 * -1))
@@ -119,7 +127,7 @@ body {
     }
 
     header {
-      transition: transform $transition-time, max-width $transition-time;
+      transition: transform $transition-time, max-width $transition-time, clip $transition-time;
     }
 
     main {
