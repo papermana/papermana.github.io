@@ -7,6 +7,11 @@ window.addEventListener('DOMContentLoaded', () => {
   document.body.addEventListener('click', startFunc);
 });
 
+//  Make sure that the page always start at the very top:
+window.addEventListener('load', () => {
+  setTimeout(() => window.scroll(0, 0), 0);
+});
+
 function startFunc() {
   document.body.classList.remove('start');
   document.body.classList.add('start-anim');
