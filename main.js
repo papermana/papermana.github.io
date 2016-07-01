@@ -1,9 +1,11 @@
+let SCROLLBAR_WIDTH;
 //  This is based on a value from _layout.scss:
 const START_ANIMATION_TIME = 1000;
 
 window.addEventListener('DOMContentLoaded', () => {
+  SCROLLBAR_WIDTH = getScrollbarWidth();
+
   document.body.classList.add('start');
-  document.body.style.width = 'calc(100vw - ' + getScrollbarWidth() + 'px)';
   document.body.addEventListener('click', startFunc);
 });
 
@@ -19,7 +21,7 @@ function startFunc() {
 
   setTimeout(() => {
     document.body.classList.remove('start-anim');
-    document.body.style.width = null;
+    document.body.style.left = SCROLLBAR_WIDTH / 2 + 'px';
   }, START_ANIMATION_TIME);
 }
 
