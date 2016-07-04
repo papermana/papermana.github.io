@@ -115,7 +115,7 @@ body {
 
   .start-anim {
     //  This needs to be reflected in main.js:
-    $transition-time: 1s;
+    $transition-time: 0.75s;
     //  This doesn't:
     $hints-transition-time: 0.05s;
 

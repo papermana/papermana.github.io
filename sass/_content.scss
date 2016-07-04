@@ -18,9 +18,9 @@ header {
     background-circle(75px, 900px, 200px, rgba(100,200,100,0.25)),
     background-circle(55px, 300px, 150px, rgba(175,175,75,0.25)),
     background-circle(200px, 1700px, 50px, rgba(100,100,50,0.25));
-  box-shadow:
-    0px 3px 4px 0px rgba(0,0,0,0.2),
-    inset 0px 0px 30px 5px rgba(0,0,0,0.1);
+  // box-shadow:
+  //   0px 3px 4px 0px rgba(0,0,0,0.2),
+  //   inset 0px 0px 30px 5px rgba(0,0,0,0.1);
 }
 
 @media screen and #{$br-large}, screen and #{$br-medium} {
