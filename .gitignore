@@ -1,0 +1,5 @@
+
+# Ignore backup files created after editing them on Linux:
+*~
+
+node_modules/
