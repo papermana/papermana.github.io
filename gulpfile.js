@@ -17,7 +17,7 @@ const paths = {
 const devTasks = [];
 const productionTasks = [];
 
-function createTask(name, category, callback) {
+function createTask(name, category, callback, watchPath) {
   name = name + ':' + category;
 
   gulp.task(name, callback);
@@ -28,6 +28,10 @@ function createTask(name, category, callback) {
   else if (category === 'production') {
     productionTasks.push(name);
   }
+
+  if (watchPath) {
+    gulp.watch(watchPath, [name]);
+  }
 }
 
 
@@ -37,11 +41,7 @@ createTask('sass', 'dev', () => {
   .pipe(sass().on('error', sass.logError))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest('.'));
-});
-
-createTask('sass:watch', 'dev', () => {
-  gulp.watch(paths.src.sass, ['sass']);
-});
+}, paths.src.sass);
 
 createTask('copyJS', 'dev', () => {
   return gulp.src(paths.src.js)
