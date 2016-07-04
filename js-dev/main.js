@@ -1,3 +1,5 @@
+'use strict';
+
 let SCROLLBAR_WIDTH;
 //  This is based on a value from _layout.scss:
 const START_ANIMATION_TIME = 1000;
@@ -28,30 +30,35 @@ function startFunc() {
 
 //  This is based on https://gist.github.com/bryanbuchs/6da1fed2bd4131f72deb:
 function getScrollbarWidth() {
-	var inner = document.createElement('p');
-	inner.style.width = "100%";
-	inner.style.height = "200px";
+  const inner = document.createElement('p');
 
-	var outer = document.createElement('div');
-	outer.style.position = "absolute";
-	outer.style.top = "0px";
-	outer.style.left = "0px";
-	outer.style.visibility = "hidden";
-	outer.style.width = "200px";
-	outer.style.height = "150px";
-	outer.style.overflow = "hidden";
-	outer.appendChild(inner);
+  inner.style.width = '100%';
+  inner.style.height = '200px';
 
-	document.body.appendChild(outer);
-	var w1 = inner.offsetWidth;
-	outer.style.overflow = 'scroll';
-	var w2 = inner.offsetWidth;
+  const outer = document.createElement('div');
 
-	if (w1 == w2) {
-		w2 = outer.clientWidth;
-	}
+  outer.style.position = 'absolute';
+  outer.style.top = '0px';
+  outer.style.left = '0px';
+  outer.style.visibility = 'hidden';
+  outer.style.width = '200px';
+  outer.style.height = '150px';
+  outer.style.overflow = 'hidden';
+  outer.appendChild(inner);
 
-	document.body.removeChild(outer);
+  document.body.appendChild(outer);
 
-	return (w1 - w2);
+  const w1 = inner.offsetWidth;
+
+  outer.style.overflow = 'scroll';
+
+  let w2 = inner.offsetWidth;
+
+  if (w1 === w2) {
+    w2 = outer.clientWidth;
+  }
+
+  document.body.removeChild(outer);
+
+  return (w1 - w2);
 }

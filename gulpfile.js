@@ -1,3 +1,5 @@
+'use strict';
+
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
