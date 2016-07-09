@@ -16,6 +16,8 @@ window.addEventListener('load', () => {
   setTimeout(() => window.scroll(0, 0), 0);
 });
 
+window.addEventListener('resize', setBodySize);
+
 function startFunc() {
   document.body.classList.remove('start');
   document.body.classList.add('start-anim');
@@ -23,8 +25,14 @@ function startFunc() {
 
   setTimeout(() => {
     document.body.classList.remove('start-anim');
-    document.body.style.left = SCROLLBAR_WIDTH / 2 + 'px';
+    setBodySize();
   }, START_ANIMATION_TIME);
+}
+
+function setBodySize() {
+  document.body.style.left = SCROLLBAR_WIDTH / 2 + 'px';
+  document.body.style.width = window.innerWidth + 'px';
+  window.scrollTo(SCROLLBAR_WIDTH / 2, window.scrollY);
 }
 
 
