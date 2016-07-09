@@ -1,0 +1,94 @@
+/******************************************************************************\
+|      MIXINS                                                                  |
+|                                                                              |
+|  This should be self-explanatory.                                            |
+|                                                                              |
+\******************************************************************************/
+
+
+@mixin start-animation($header-width) {
+  //  <body> element:
+  .start,
+  .start-anim {
+    $arrow-color: rgba(0,0,0,0.55);
+    $arrow-size: 18px;
+
+    overflow: hidden;
+
+    &::before {
+      content: 'Click to scroll';
+      position: fixed;
+      bottom: 100px + $arrow-size + 16px;
+      right: 0;
+
+      width: 100%;
+
+      text-align: center;
+      color: rgba(0,0,0,0.4);
+    }
+
+    &::after {
+      content: '';
+      position: fixed;
+      bottom: 100px;
+      right: calc((100vw - #{$arrow-size * 2}) / 2);
+
+      width: 0;
+      height: 0;
+
+      border: $arrow-size solid;
+      border-color: transparent $arrow-color $arrow-color transparent;
+
+      transform: rotate(45deg);
+    }
+
+    header {
+      z-index: 10;
+
+      //  Prepare for animation, put header on a separate GPU layer:
+      backface-visibility: visible;
+      will-change: transform, max-width, clip;
+    }
+
+  }
+
+  .start {
+    cursor: pointer;
+
+    header {
+      max-width: 100%;
+
+      // clip: rect(0px 100vw $header-height 0px);
+
+      transform:
+        translateX(calc((100% - #{$header-width}) / 2 * -1))
+        translateY(calc((100vh - #{$header-height}) / 2 - #{$header-offset-top}));
+    }
+
+    main {
+      transform: translateY(100vh);
+    }
+  }
+
+  .start-anim {
+    //  This needs to be reflected in main.js:
+    $transition-time: 0.75s;
+    //  This doesn't:
+    $hints-transition-time: 0.05s;
+
+    &::before,
+    &::after {
+      opacity: 0;
+
+      transition: opacity $hints-transition-time;
+    }
+
+    header {
+      transition: transform $transition-time, max-width $transition-time, clip $transition-time;
+    }
+
+    main {
+      transition: transform $transition-time;
+    }
+  }
+}
