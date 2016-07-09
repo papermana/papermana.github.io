@@ -45,7 +45,7 @@ body {
     margin-top: $header-offset-top - $main-height-over-header;
     margin-bottom: 50px;
 
-    padding: $main-padding;
+    padding: 100px;
     padding-top: 10px + $header-height + $main-height-over-header;
     padding-bottom: 50px;
   }
@@ -75,7 +75,7 @@ body {
     margin-top: $header-offset-top - $main-height-over-header;
     margin-bottom: 50px;
 
-    padding: $main-padding;
+    padding: 50px;
     padding-top: 10px + $header-height + $main-height-over-header;
     padding-bottom: 50px;
   }
@@ -94,7 +94,7 @@ body {
   }
 
   main {
-    padding: 50px;
+    padding: 25px;
     padding-top: 0;
 
     overflow: auto;
@@ -112,7 +112,7 @@ body {
   }
 
   main {
-    padding: 20px;
+    padding: 15px;
     padding-top: 0;
 
     overflow: auto;
