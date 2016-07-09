@@ -56,6 +56,11 @@ body {
 @media screen and #{$br-medium} {
   body {
     padding: 0 #{$body-padding + $header-main-width-difference};
+
+    //  Due to a small vertical offset being applied to body, to counteract
+    //  the width of the scrollbar appearing after the animation displacing
+    //  the content slightly, making it twitch:
+    overflow-x: hidden;
   }
 
   header {
