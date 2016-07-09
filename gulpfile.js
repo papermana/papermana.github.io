@@ -46,7 +46,7 @@ createTask('sass', 'dev', () => {
 createTask('copyJS', 'dev', () => {
   return gulp.src(paths.src.js)
   .pipe(gulp.dest('.'));
-});
+}, paths.src.js);
 
 
 createTask('sass', 'production', () => {
