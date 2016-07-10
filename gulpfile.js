@@ -18,7 +18,7 @@ const devTasks = [];
 const productionTasks = [];
 
 function createTask(name, category, callback, watchPath) {
-  name = name + ':' + category;
+  name += ':' + category;
 
   gulp.task(name, callback);
 
@@ -30,7 +30,18 @@ function createTask(name, category, callback, watchPath) {
   }
 
   if (watchPath) {
-    gulp.watch(watchPath, [name]);
+    name += ':watch';
+
+    gulp.task(name, () => {
+      return gulp.watch(watchPath, [name]);
+    });
+
+    if (category === 'dev') {
+      devTasks.push(name);
+    }
+    else if (category === 'production') {
+      productionTasks.push(name);
+    }
   }
 }
 
