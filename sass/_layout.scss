@@ -123,3 +123,13 @@ body {
     overflow: auto;
   }
 }
+
+@media print {
+  body {
+    //  Overwrite inline styles from JS:
+    left: 0 !important;
+    width: 100% !important;
+
+    padding: 1.5cm;
+  }
+}
