@@ -25,6 +25,10 @@
 
       text-align: center;
       color: rgba(0,0,0,0.4);
+
+      @media (max-height: 800px) {
+        bottom: calc(#{$arrow-size * 2} + 16px);
+      }
     }
 
     &::after {
@@ -40,6 +44,10 @@
       border-color: transparent $arrow-color $arrow-color transparent;
 
       transform: rotate(45deg);
+
+      @media (max-height: 800px) {
+        bottom: $arrow-size;
+      }
     }
 
     header {

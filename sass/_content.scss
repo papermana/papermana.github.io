@@ -130,7 +130,7 @@ header h2 {
 //  MAIN
 //
 main {
-  @media screen {
+  @media screen and #{$br-large}, screen and #{$br-medium} {
     background-color: white;
     box-shadow: 0px 2px 3px 1px rgba(0,0,0,0.2);
   }
